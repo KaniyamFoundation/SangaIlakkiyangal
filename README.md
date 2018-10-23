@@ -1,2 +1,2 @@
-# Sanga-Ilakkiyangal
+# SangaIlakkiyangal
 Android application for Sanga Ilakkiyangal
