@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Color Red-->
+    <color name="primary_red">#F44336</color>
+    <color name="primary_dark_red">#D32F2F</color>
+    <color name="primary_light_red">#FFCDD2</color>
+    <color name="accent_red">#FF5722</color>
+
+    <!--Color Blue-->
+    <color name="primary_blue">#2196F3</color>
+    <color name="primary_dark_blue">#1976D2</color>
+    <color name="primary_light_blue">#BBDEFB</color>
+    <color name="accent_blue">#03A9F4</color>
+
+    <!--Color Green-->
+    <color name="primary_green">#4CAF50</color>
+    <color name="primary_dark_green">#388E3C</color>
+    <color name="primary_light_green">#C8E6C9</color>
+    <color name="accent_green">#8BC34A</color>
+
+    <!--Color purple-->
+    <color name="primary_purple">#9C27B0</color>
+    <color name="primary_dark_purple">#7B1FA2</color>
+    <color name="primary_light_purple">#E1BEE7</color>
+    <color name="accent_purple">#7C4DFF</color>
+
+    <!--Color Grey-->
+    <color name="primary_grey">#9E9E9E</color>
+    <color name="primary_dark_grey">#616161</color>
+    <color name="primary_light_grey">#d4d4d4</color>
+    <color name="accent_grey">#607D8B</color>
+
+    <color name="primary_text">#FFFFFF</color>
+    <color name="secondary_text">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="sender_color_bg">#EEEEEE</color>
+    <color name="divider">#BDBDBD</color>
+    <color name="progress_color">#FFFB00</color>
+    <color name="activity_bg">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="color_link">#0588BC</color>
+    <color name="splash_bg">#3194E6</color>
+    <color name="color_divider_transparent">#77B6B6B6</color>
+</resources>

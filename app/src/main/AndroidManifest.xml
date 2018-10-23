@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.jskaleel.sangaelakkiyangal">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".SangaElakkiyaApp"
+        android:allowBackup="true"
+        android:fullBackupContent="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.Blue"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:icon">
+        <activity
+            android:name=".ui.activities.SplashActivity"
+            android:theme="@style/Theme.Translucent">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.activities.HomeActivity" />
+        <activity android:name=".ui.activities.PdfViewerActivity" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="8b321845d8fa15df7c1b8ef77f45e893f4000526" />
+
+        <receiver
+            android:name=".utils.DownloadNotificationIntentReceiver"
+            android:enabled="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="utilities.ACTION_CANCEL_PLAYBACK" />
+            </intent-filter>
+        </receiver>
+    </application>
+    <!--password : sanga2018-->
+</manifest>

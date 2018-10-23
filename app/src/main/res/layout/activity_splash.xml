@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_gradient"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_splash_contour"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/iv_splash_logo"
+        android:layout_width="192dp"
+        android:layout_height="192dp"
+        android:layout_centerInParent="true"
+        android:elevation="5dp"
+        android:src="@drawable/ic_launcher_splash"
+        tools:ignore="ContentDescription" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp">
+
+        <TextView
+            android:id="@+id/txtError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/avlProgress"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:visibility="invisible" />
+
+        <ProgressBar
+            android:id="@+id/avlProgress"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+</RelativeLayout>
