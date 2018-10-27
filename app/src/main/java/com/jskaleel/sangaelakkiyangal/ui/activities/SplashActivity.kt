@@ -1,6 +1,7 @@
 package com.jskaleel.sangaelakkiyangal.ui.activities
 
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.WindowManager
 import com.jskaleel.sangaelakkiyangal.R
@@ -11,7 +12,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_splash.*
 
-class SplashActivity : BaseActivity() {
+class SplashActivity : AppCompatActivity() {
     var disposable: Disposable? = null
     var retryCount = 0;
 

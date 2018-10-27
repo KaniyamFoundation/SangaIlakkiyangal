@@ -13,18 +13,22 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.jskaleel.sangaelakkiyangal.R
-import com.jskaleel.sangaelakkiyangal.listeners.BookItemClickListener
 import com.jskaleel.sangaelakkiyangal.model.ResponseModel
 import com.jskaleel.sangaelakkiyangal.utils.AppConstants
-import android.support.v4.content.ContextCompat.startActivity
 import android.content.Intent
 import android.net.Uri
+import com.jskaleel.sangaelakkiyangal.listeners.BookItemClickListener
+import com.jskhaleel.hellofreshtest.database.AppDataBase
+import com.jskhaleel.hellofreshtest.database.dao.DownloadedBooksDao
 
 
-class HorizontalCategoryListAdapter(private val context: Context?, val books: ArrayList<ResponseModel.BooksItem>,
-                                    val bookItemClickListener: BookItemClickListener,
-                                    var horizontalPosition: Int) : RecyclerView.Adapter<HorizontalCategoryListAdapter.BookViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HorizontalCategoryListAdapter.BookViewHolder {
+class CategoryDetailsListAdapter(private val context: Context,
+                                 private val books: ArrayList<ResponseModel.BooksItem>,
+                                 private val bookItemClickListener: BookItemClickListener) : RecyclerView.Adapter<CategoryDetailsListAdapter.BookViewHolder>() {
+
+    private var booksDao: DownloadedBooksDao = AppDataBase.getAppDatabase(context).downloadedBooksDao()
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryDetailsListAdapter.BookViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.book_item_view, parent, false)
         return BookViewHolder(view)
     }
@@ -33,18 +37,14 @@ class HorizontalCategoryListAdapter(private val context: Context?, val books: Ar
         return books.size
     }
 
-    override fun onBindViewHolder(holder: HorizontalCategoryListAdapter.BookViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CategoryDetailsListAdapter.BookViewHolder, position: Int) {
         val singleItem = books[position]
         holder.bookTitle.text = singleItem.title
-        if (context != null) {
-            Glide.with(context)
-                    .load(singleItem.cover_url)
-                    .apply(RequestOptions().diskCacheStrategy(DiskCacheStrategy.AUTOMATIC))
-                    .into(holder.ivBookCover)
-        }
-        holder.ivMore.setOnClickListener {
-            showPopupMenu(holder.itemView, singleItem, holder.adapterPosition)
-        }
+        Glide.with(context)
+                .load(singleItem.cover_url)
+                .apply(RequestOptions().diskCacheStrategy(DiskCacheStrategy.AUTOMATIC))
+                .apply(RequestOptions().centerCrop())
+                .into(holder.ivBookCover)
 
         holder.itemView.setOnClickListener {
             showPopupMenu(holder.itemView, singleItem, holder.adapterPosition)
@@ -80,11 +80,11 @@ class HorizontalCategoryListAdapter(private val context: Context?, val books: Ar
         popupMenu.setOnMenuItemClickListener {
             when (it.itemId) {
                 1001 -> {
-                    bookItemClickListener.onItemClickListener(singleItem, horizontalPosition, itemPosition, 1001)
+                    bookItemClickListener.onItemClickListener(singleItem, itemPosition, 1001)
                     true
                 }
                 1002 -> {
-                    bookItemClickListener.onItemClickListener(singleItem, horizontalPosition, itemPosition, 1002)
+                    bookItemClickListener.onItemClickListener(singleItem, itemPosition, 1002)
                     true
                 }
                 1003 -> {
@@ -102,7 +102,11 @@ class HorizontalCategoryListAdapter(private val context: Context?, val books: Ar
     class BookViewHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
         internal var ivBookCover: ImageView = itemView.findViewById<View>(R.id.ivBookCover) as ImageView
         internal var bookTitle: TextView = itemView.findViewById<View>(R.id.bookTitle) as TextView
-        internal var ivMore: ImageView = itemView.findViewById<View>(R.id.ivMore) as ImageView
         internal var downloadStatus: TextView = itemView.findViewById<View>(R.id.downloadStatus) as TextView
+    }
+
+    fun updateItemStatus(status: String, itemPosition: Int) {
+        books[itemPosition].status = status
+        notifyItemChanged(itemPosition)
     }
 }

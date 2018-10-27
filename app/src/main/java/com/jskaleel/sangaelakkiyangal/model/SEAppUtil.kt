@@ -6,23 +6,25 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-object SEAppUtil {
-    fun getRetrofit(): ApiInterface {
-        val retrofit = Retrofit.Builder()
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(BuildConfig.URL_HOST)
-                .build()
-        return retrofit.create(ApiInterface::class.java)
-    }
+class SEAppUtil {
+    companion object {
+        var categoriesList: List<ResponseModel.MainListResponse>? = null
 
-    lateinit var categoriesList: List<ResponseModel.MainListResponse>
+        fun setCategories(result: List<ResponseModel.MainListResponse>) {
+            categoriesList = result
+        }
 
-    fun setCategories(result: List<ResponseModel.MainListResponse>) {
-        SEAppUtil.categoriesList = result
-    }
+        fun getCategories(): List<ResponseModel.MainListResponse>? {
+            return categoriesList
+        }
 
-    fun getCategories(): List<ResponseModel.MainListResponse> {
-        return SEAppUtil.categoriesList
+        fun getRetrofit(): ApiInterface {
+            val retrofit = Retrofit.Builder()
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .baseUrl(BuildConfig.URL_HOST)
+                    .build()
+            return retrofit.create(ApiInterface::class.java)
+        }
     }
 }

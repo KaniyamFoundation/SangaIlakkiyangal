@@ -16,6 +16,7 @@ import com.jskaleel.sangaelakkiyangal.ui.activities.HomeActivity
 import java.io.File
 import java.text.DecimalFormat
 
+
 object DeviceUtils {
 
     fun getAppDirectory(context: Context): File {
@@ -81,13 +82,13 @@ object DeviceUtils {
 
     private fun updateNotification(context: Context, bookName: String, progress: Int, bookId: Long, downloadedBytes: Long, fileSize: Long): NotificationCompat.Builder {
         val largeIcon = BitmapFactory.decodeResource(context.resources, R.mipmap.ic_launcher)
-        val builder1 = NotificationCompat.Builder(context, "Download_Notification")
+        val builder1 = NotificationCompat.Builder(context, AppConstants.DOWNLOAD_NOTIFICATION)
         builder1.setDefaults(NotificationCompat.DEFAULT_LIGHTS)
                 .setOngoing(true)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setContentTitle(bookName)
                 .setContentIntent(getPendingIntent(context, AppConstants.NOTIFICATION_ID))
-                .setColor(ContextCompat.getColor(context, R.color.primary_blue))
+                .setColor(ContextCompat.getColor(context, R.color.primary_grey))
                 .setLargeIcon(largeIcon)
                 .setShowWhen(false)
                 .setSmallIcon(R.drawable.ic_notification_icon)
@@ -129,14 +130,14 @@ object DeviceUtils {
     fun updateMessageNotification(context: Context, bookName: String, bookId: Long): NotificationCompat.Builder {
         val largeIcon = BitmapFactory.decodeResource(context.resources, R.mipmap.ic_launcher)
 
-        val builder1 = NotificationCompat.Builder(context, "Download_Notification")
+        val builder1 = NotificationCompat.Builder(context, AppConstants.DOWNLOAD_NOTIFICATION)
         builder1.setDefaults(NotificationCompat.DEFAULT_LIGHTS)
-                .setContentTitle(bookName+" ${context.getString(R.string.download_complete)}")
+                .setContentTitle(bookName + " ${context.getString(R.string.download_complete)}")
                 .setContentIntent(getPendingIntent(context, bookId.toInt()))
                 .setShowWhen(true)
                 .setAutoCancel(true)
                 .setLargeIcon(largeIcon)
-                .setColor(ContextCompat.getColor(context, R.color.primary_blue))
+                .setColor(ContextCompat.getColor(context, R.color.primary_grey))
                 .setSmallIcon(R.drawable.ic_notification_icon)
         return builder1
     }
@@ -144,7 +145,7 @@ object DeviceUtils {
     fun showErrorNotification(context: Context, errorTitle: String, errorMessage: String, bookId: Long) {
         val largeIcon = BitmapFactory.decodeResource(context.resources, R.mipmap.ic_launcher)
 
-        val builder1 = NotificationCompat.Builder(context, "Download_Notification")
+        val builder1 = NotificationCompat.Builder(context, AppConstants.DOWNLOAD_NOTIFICATION)
         builder1.setDefaults(NotificationCompat.DEFAULT_LIGHTS)
                 .setContentTitle(errorTitle)
                 .setStyle(NotificationCompat.BigTextStyle()
@@ -154,9 +155,15 @@ object DeviceUtils {
                 .setShowWhen(true)
                 .setAutoCancel(true)
                 .setLargeIcon(largeIcon)
-                .setColor(ContextCompat.getColor(context, R.color.primary_blue))
+                .setColor(ContextCompat.getColor(context, R.color.primary_grey))
                 .setSmallIcon(R.drawable.ic_notification_icon)
         val mNotificationManager4 = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         mNotificationManager4.notify(AppConstants.NOTIFICATION_ID, builder1.build())
+    }
+
+    fun calculateNoOfColumns(context: Context): Int {
+        val displayMetrics = context.resources.displayMetrics
+        val dpWidth = displayMetrics.widthPixels / displayMetrics.density
+        return (dpWidth / 180).toInt()
     }
 }

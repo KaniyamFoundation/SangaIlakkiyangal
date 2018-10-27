@@ -1,32 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme.Green" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/primary_green</item>
-        <item name="colorPrimaryDark">@color/primary_dark_green</item>
-        <item name="colorAccent">@color/accent_green</item>
-        <item name="colorControlHighlight">@color/primary_light_green</item>
-    </style>
-
-    <style name="AppTheme.Purple" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/primary_purple</item>
-        <item name="colorPrimaryDark">@color/primary_dark_purple</item>
-        <item name="colorAccent">@color/accent_purple</item>
-        <item name="colorControlHighlight">@color/primary_light_purple</item>
-    </style>
-
-    <style name="AppTheme.Red" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/primary_red</item>
-        <item name="colorPrimaryDark">@color/primary_dark_red</item>
-        <item name="colorAccent">@color/accent_red</item>
-        <item name="colorControlHighlight">@color/primary_light_red</item>
-    </style>
-
-    <style name="AppTheme.Blue" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/primary_blue</item>
-        <item name="colorPrimaryDark">@color/primary_dark_blue</item>
-        <item name="colorAccent">@color/accent_blue</item>
-        <item name="colorControlHighlight">@color/primary_light_blue</item>
-    </style>
 
     <style name="AppTheme.Grey" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="colorPrimary">@color/primary_grey</item>
@@ -35,7 +8,7 @@
         <item name="colorControlHighlight">@color/primary_light_grey</item>
     </style>
 
-    <style name="AppTheme.Translucent" parent="AppTheme.Blue">
-        <item name="android:statusBarColor">@color/primary_dark_blue</item>
+    <style name="AppTheme.Translucent" parent="AppTheme.Grey">
+        <item name="android:statusBarColor">@color/primary_dark_grey</item>
     </style>
 </resources>

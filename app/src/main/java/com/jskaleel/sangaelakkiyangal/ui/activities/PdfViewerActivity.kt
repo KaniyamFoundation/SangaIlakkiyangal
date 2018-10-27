@@ -50,8 +50,10 @@ class PdfViewerActivity : AppCompatActivity(), OnPageChangeListener, OnLoadCompl
         setContentView(R.layout.activity_pdf_viewer)
         pdfView = findViewById(R.id.pdfView)
 
-        val uri = intent.data
-        displayFromUri(uri)
+        val uri : Uri? = intent.data
+        if (uri != null) {
+            displayFromUri(uri)
+        }
     }
 
     private fun displayFromUri(uri: Uri) {

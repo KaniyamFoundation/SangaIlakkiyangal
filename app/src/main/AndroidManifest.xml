@@ -17,7 +17,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.Blue"
+        android:theme="@style/Theme.Grey"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:icon">
         <activity
@@ -33,6 +33,7 @@
 
         <activity android:name=".ui.activities.HomeActivity" />
         <activity android:name=".ui.activities.PdfViewerActivity" />
+        <activity android:name=".ui.activities.CategoryDetailsActivity" />
 
         <meta-data
             android:name="io.fabric.ApiKey"

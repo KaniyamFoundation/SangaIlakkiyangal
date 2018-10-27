@@ -1,11 +1,15 @@
 package com.jskaleel.sangaelakkiyangal.utils
 
 object AppConstants {
+    var DOWNLOAD_NOTIFICATION = "download_notification"
+
+    var KEY_CATEGORY_ITEM_RESPONSE = "key_category_item_response"
+
     var STATUS_NONE = "status_none"
     var STATUS_QUEUED = "status_queued"
     var STATUS_COMPLETED = "status_completed"
     var STATUS_ERROR = "status_error"
-    var DOWNLOAD_VIDEO_COMPLETED = "DOWNLOAD_VIDEO_COMPLETED";
+    var DOWNLOAD_VIDEO_COMPLETED = "DOWNLOAD_VIDEO_COMPLETED"
     val DOWNLOAD_STATUS = "download_status"
 
 

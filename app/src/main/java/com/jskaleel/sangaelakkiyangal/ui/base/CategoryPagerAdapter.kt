@@ -15,9 +15,9 @@ class CategoryPagerAdapter(fm: FragmentManager, private val mainLists: List<Resp
 
     override fun getItem(position: Int): Fragment? {
         when (position) {
-            0 -> return EttuThogaiFragment.newInstance(position)
-            1 -> return PaththuppattuFragment.newInstance(position)
-            2 -> return PathinenKizkanakkuFragment.newInstance(position)
+            0 -> return EttuThogaiFragment.newInstance()
+            1 -> return PaththuppattuFragment.newInstance()
+            2 -> return PathinenKizkanakkuFragment.newInstance()
         }
         return null
     }

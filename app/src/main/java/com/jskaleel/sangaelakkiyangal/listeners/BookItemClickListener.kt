@@ -4,5 +4,5 @@ import com.jskaleel.sangaelakkiyangal.model.ResponseModel
 
 interface BookItemClickListener {
 
-    fun onItemClickListener(singleItem: ResponseModel.BooksItem, horizontalPosition: Int, itemPosition: Int, itemTag : Int)
+    fun onItemClickListener(singleItem: ResponseModel.BooksItem, itemPosition: Int, type: Int)
 }
